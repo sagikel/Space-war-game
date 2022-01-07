@@ -1,0 +1,105 @@
+skelner
+
+
+=======================
+=  File Description:  =
+=======================
+
+1. SpaceShipFactory.java
+This class has a single static method.
+It is used by the driver to create all the spaceship objects according to the command line arguments.
+
+2. SpaceShip.java
+The spaceship object that is used in the SpaceWars game.
+
+3. GameRules.java
+A class that defines all information about the rules of the game.
+
+4. humanControlledShip.java
+This class produces a human-controlled spaceship.
+
+5. ComputerControlledShip.java
+This is an abstract class that responsible for computer-driven spaceship operations.
+
+6. RunnerShip.java
+This class produces a Runner spaceship.
+
+7. BasherShip.java
+This class produces a Basher spaceship.
+
+8. AggressiveShip.java
+This class produces an Aggressive spaceship.
+
+9. DrunkardShip.java
+This class produces a Drunkard spaceship.
+
+10. SpecialShip.java
+This class produces a Special spaceship.
+
+11. Pictures.java
+This class upload the png files that is the image of the special ship.
+
+11. cool Trump.png
+Image file of the special spaceship.
+
+12. cool Trump with shield.png
+Image file of the special spaceship.
+
+13. weird Trump.png
+Image file of the special spaceship.
+
+14. README
+This file.
+
+=============
+=  Design:  =
+=============
+
+For create the spaceships objects, I took the father-SpaceShip class and made it an *abstract* class.
+The heirs classes are humanControlledShip class and ComputerControlledShip class.
+While humanControlledShip produces human spaceships object ("is a" relation for spaceship class),
+ComputerControlledShip is just another father class for different types of computer spaceships
+and therefore it is also an *abstract* class.
+The types of computer spaceship have there own class, and they heir from ComputerControlledShip class (have "is a"
+relation for ComputerControlledShip class).
+
+thus the tree look like this:
+
+                              spaceships*
+                                 / \
+              humanControlledShip   ComputerControlledShip*
+                                    /     \   /     \    \
+                   RunnerShip BasherShip AggressiveShip DrunkardShip SpecialShip
+                          (5 different types of computer spaceships.)
+
+*abstract class
+
+This design allows polymorphism.
+In addition, the design allows methods to be shared across several types of objects. Beyond that, any
+type of computer-powered spaceship should only write its own uniqueness and order of operations.
+it make it more easy..
+for the abstract methods:
+only getImage and doAction for spaceships class.
+only mySpecialThing for ComputerControlledShip.
+
+Finally, I built a class of game rules (GameRules) that can be use in Implementation across all classes.
+
+============================
+=  Implementation Issues:  =
+============================
+
+In accordance with the rules of the game and design, each computer-controlled spaceship class
+doing an override on doAction method, for changing/adding there movement, and then use super.
+
+At DrunkardShip and SpecialShip, A unique method of displacement was constructed based on
+randomness values. therefore, they have a constructor for create different spaceships
+of the same type.
+
+I got help from the teaching assistant in the course on how to upload the image files.
+I hope "cool Trump" works well and entertains =].
+
+===========================
+=  Answers to questions:  =
+===========================
+
+Null
